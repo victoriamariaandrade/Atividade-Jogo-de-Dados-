@@ -130,7 +130,7 @@ export default function JogoDados() {
 
   if (jogoFinalizado) {
     let resultadoFinal = '';
-    //const diferenca = Math.abs(vitoriasA - vitoriasB);
+
     if (vitoriasA > vitoriasB) {
       resultadoFinal = `Jogador A Venceu! (${vitoriasA}x${vitoriasB})`;
     } else if (vitoriasB > vitoriasA) {
