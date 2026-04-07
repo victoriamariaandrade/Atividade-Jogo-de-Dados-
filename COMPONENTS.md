@@ -138,16 +138,59 @@ Cada imagem é um SVG vetorial com:
 
 ---
 
+## Animações CSS
+
+As animações são definidas em `app/globals.css` usando `@keyframes`:
+
+### `spin-dice`
+- **Duração**: 600ms
+- **Easing**: `cubic-bezier(0.68, -0.55, 0.265, 1.55)`
+- **Transformações**: Rotação em eixo X (1440deg), Y (720deg) e Z (360deg)
+- **Uso**: Aplicada quando um dado é lançado
+
+### `fade-in`
+- **Duração**: 400ms
+- **Easing**: `ease-out`
+- **Transformação**: Escala de 0.8 para 1.0, opacidade 0-1
+- **Uso**: Aparação da soma dos dados
+
+### `pulse-result`
+- **Duração**: 600ms
+- **Easing**: `ease-in-out`
+- **Transformação**: Pulsação de opacidade (1.0 -> 0.7 -> 1.0)
+- **Uso**: Resultado da rodada (Ganhou/Perdeu/Empatou)
+
+### `slide-in-top`
+- **Duração**: 500ms
+- **Easing**: `ease-out`
+- **Transformação**: Descida de -20px com fade-in
+- **Uso**: Tela final do jogo
+
+### Classes de Animação
+- `.animate-dice`: Aplica `spin-dice`
+- `.animate-fade-in`: Aplica `fade-in`
+- `.animate-pulse-result`: Aplica `pulse-result`
+- `.animate-slide-in`: Aplica `slide-in-top`
+
+---
+
 ## Estilos
 
-### Tailwind CSS
-O projeto utiliza Tailwind CSS para estilização. As principais classes utilizadas:
+### Tailwind CSS com Dark Mode
+O projeto utiliza Tailwind CSS com suporte a dark mode via classe `dark`. As principais configurações:
 
+- **Dark Mode**: Ativado com `darkMode: 'class'` no `tailwind.config.js`
+- **Transições**: Todas as cores têm transição suave de 300ms
+- **Paleta**: Cores otimizadas para light e dark mode
+
+### Classes Principais
 - Layout: `flex`, `grid`, `gap`, `p`, `m`
-- Cores: `bg-white`, `bg-blue-500`, `text-gray-800`, `text-blue-600`
+- Cores Light: `bg-white`, `bg-blue-500`, `text-gray-800`, `text-blue-600`
+- Cores Dark: `dark:bg-gray-800`, `dark:text-white`, `dark:bg-blue-700`
 - Efeitos: `shadow-2xl`, `rounded-full`, `drop-shadow-lg`
 - Responsividade: `max-w-2xl`, `min-h-screen`
-- Estados: `hover:`, `disabled:`
+- Estados: `hover:scale-105`, `active:scale-95`, `disabled:opacity-50`
+- Transições: `transition-all`, `transition-colors`, `duration-300`
 
 ### Arquivo principal
-- `app/globals.css`: Estilos globais com imports do Tailwind
+- `app/globals.css`: Estilos globais com imports do Tailwind + animações customizadas
